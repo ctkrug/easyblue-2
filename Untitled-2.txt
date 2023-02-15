@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AAS 115: Elementary Swahili</title>
+<meta content="" name="description"/>
+<meta content="" name="author"/>
+<meta content="website" property="og:type">
+<meta content="/static/images/logo/atlas-primary-logo.png" property="og:image">
+<link href="/static/images/logo/atlas-favicon-32x32.png" rel="shortcut icon"/>
+<link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://use.typekit.net/jjw4ynx.css" rel="stylesheet"/>
+<link href="/static/dist/css/styles.32ab6f23.css" rel="stylesheet">
+<script src="/static/dist/js/styles.d6abf560.js"></script>
+<script src="/static/plotly/plotly-2.12.1.min.js"></script>
+</link></meta></meta></head>
+<body class="" data-is-bookmark="/static/images/icons/bookmark-icon.svg" data-no-bookmark="/static/images/icons/bookmark-icon-outline.svg">
+<header>
+<nav class="nav-bar is-visible" data-nav-status="toggle">
+<div class="nav-bar-wrapper">
+<div class="nav-bar-container">
+<div class="nav-bar-logo-container">
+<a href="/"> <img alt="Atlas logo" class="nav-bar-logo" src="/static/images/logo/atlas-primary-logo.svg"/></a>
+</div>
+<div class="nav-bar-search-box-container" id="myNavbar">
+<search-field></search-field>
+</div>
+<div class="nav-bar-link-container">
+<button class="hamburger">
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+</button>
+<ul class="nav-bar-links">
+<li class="desktop-hidden tablet-only text-small"><a href="/my-dashboard/"><p></p>My Dashboard</a></li>
+<li class="desktop-hidden tablet-only"><a class="text-small" href="/schedule-builder/">Schedule Builder</a></li>
+<li class="desktop-hidden tablet-only text-small"><a href="/courses/"><p></p>Browse Courses</a></li>
+<li class="desktop-hidden tablet-only text-small"><a href="/spotlights/"><p></p>Academic Spotlights</a></li>
+<li class="text-small"><a href="/about/">About Us</a></li>
+<li class="text-small"><a href="/accounts/logout">Log out</a></li>
+</ul>
+</div>
+</div>
+<div class="secondary-nav-bar-container mobile-hidden tablet-hidden">
+<ul class="nav-bar-links">
+<li><a class="text-small" href="/courses/">
+<svg class="nav-icon" height="15.25" viewbox="0 0 16.777 15.25" width="16.777" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.277,4.5H3l6.111,7.226V18.25h3.055V11.726Z" data-name="Icon feather-filter" fill="none" id="Icon_feather-filter" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="translate(-2.25 -3.75)"></path>
+</svg>
+          Browse Courses</a></li>
+<li><a class="text-small" href="/spotlights/">
+<svg class="nav-icon" height="11.653" viewbox="0 0 13.854 11.653" width="13.854" xmlns="http://www.w3.org/2000/svg">
+<g data-name="Group 5203" id="Group_5203" transform="translate(-828.026 -108.04)">
+<g data-name="Group 5200" id="Group_5200" transform="translate(0 -2.806)">
+<circle cx="1" cy="1" data-name="Ellipse 1477" id="Ellipse_1477" r="1" transform="translate(834 120)"></circle>
+</g>
+<path d="M-13437.944-1675.53l5.942-9.874,5.854,9.874" data-name="Path 3111" fill="none" id="Path_3111" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="translate(14267 1794.194)"></path>
+</g>
+</svg>
+          Academic Spotlights</a></li>
+<li><a class="text-small" href="/schedule-builder/">
+<svg class="nav-icon" height="17" viewbox="0 0 15 16.5" width="15.5" xmlns="http://www.w3.org/2000/svg">
+<g data-name="Icon feather-calendar" id="Icon_feather-calendar" transform="translate(-3.75 -2.25)">
+<path d="M6,6H16.5A1.5,1.5,0,0,1,18,7.5V18a1.5,1.5,0,0,1-1.5,1.5H6A1.5,1.5,0,0,1,4.5,18V7.5A1.5,1.5,0,0,1,6,6Z" data-name="Path 3087" fill="none" id="Path_3087" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" transform="translate(0 -1.5)"></path>
+<path d="M24,3V6" data-name="Path 3088" fill="none" id="Path_3088" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" transform="translate(-9.75)"></path>
+<path d="M12,3V6" data-name="Path 3089" fill="none" id="Path_3089" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" transform="translate(-3.75)"></path>
+<path d="M4.5,15H18" data-name="Path 3090" fill="none" id="Path_3090" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" transform="translate(0 -6)"></path>
+</g>
+</svg>
+          Schedule Builder</a></li>
+<li class="text-small"><a href="/my-dashboard/">
+<svg class="nav-icon" height="13.605" viewbox="0 0 14.327 13.605" width="14.327" xmlns="http://www.w3.org/2000/svg">
+<g data-name="Group 5202" id="Group_5202" transform="translate(-1140.977 -107.074)">
+<g data-name="Group 5201" id="Group_5201">
+<g data-name="Group 5197" id="Group_5197" transform="translate(159.773 94.16)">
+<path d="M5.953,6H16.124c.8,0,1.453.117,1.453.262V8.093c0,.145-.651.262-1.453.262H5.953c-.8,0-1.453-.117-1.453-.262V6.262C4.5,6.117,5.151,6,5.953,6Z" data-name="Path 3095" fill="none" id="Path_3095" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" transform="translate(977.328 17.539)"></path>
+<path d="M5.953,6H16.124c.8,0,1.453.117,1.453.262V8.093c0,.145-.651.262-1.453.262H5.953c-.8,0-1.453-.117-1.453-.262V6.262C4.5,6.117,5.151,6,5.953,6Z" data-name="Path 3107" fill="none" id="Path_3107" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" transform="translate(977.328 12.539)"></path>
+<path d="M5.953,6H16.124c.8,0,1.453.117,1.453.262V8.093c0,.145-.651.262-1.453.262H5.953c-.8,0-1.453-.117-1.453-.262V6.262C4.5,6.117,5.151,6,5.953,6Z" data-name="Path 3108" fill="none" id="Path_3108" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" transform="translate(977.328 7.539)"></path>
+</g>
+</g>
+</g>
+</svg>
+          My Dashboard</a></li>
+</ul>
+</div>
+</div>
+</nav>
+</header>
+<div class="wrapper container app">
+<div class="card-container">
+<div class="course-top-section">
+<div class="course-top-section-left">
+<img alt="the University of Michigan logo" class="um-logo" src="/static/images/logo/um-logo.png"/>
+<p class="profile-title"><span class="label-gray">Course Profile</span></p>
+<div class="course-overview-container">
+<div class="course-header-container">
+<h1 class="text-med bold">AAS 115</h1>
+<h2 class="text-large">Elementary Swahili</h2>
+</div>
+<div class="course-description card-description shorten text-small">
+<show-more-container :maintains-minimum-height="true">
+          Elementary Swahili I --- This introductory-level course is designed for students with little or no previous study of Swahili (Kiswahili). Students develop their ability to communicate satisfactorily in Swahili in everyday practical situations as well as acquire some of the skills necessary for effective reading and writing. Using a variety of written and oral materials, the course focuses on the development of the four language skills necessary for interpersonal communication in Swahili: listening, writing, reading, and speaking.
+        </show-more-container>
+</div>
+</div>
+</div>
+<div class="course-top-section-right">
+<div class="prereq-container">
+<div class="course-credit-container" id="credits">
+<div class="bookmark-container">
+<bookmark-button item="AAS 115" type="course"></bookmark-button>
+<p class="bold bookmark-save-text">Save to My Dashboard</p>
+</div>
+<p class="text-small"><span class="bold">Credits: </span>4.0</p>
+</div>
+<p class="grade-median text-small bold">Median Grade:
+        <span class="bold blue-highlight-text">A-</span>
+</p>
+<p class="text-xsmall blue-highlight bold scroll-info">
+<img alt="Arrow icon" class="arrow-icon" src="/static/images/icons/arrow-icon.svg"/>
+        Scroll down for more Information
+      </p>
+</div>
+</div>
+</div>
+</div>
+<div class="card-container">
+<div class="course-sections-availability-container">
+<h3 class="text-med">Course Sections</h3>
+<course-section-table course-code="AAS 115"></course-section-table>
+</div>
+</div>
+<div class="card-container callout-card-container">
+<p class="text-small text-center">
+    Course profile data represents the past 5 academic years with the addition of the current active year.
+  </p>
+</div>
+<div class="card-container">
+<div class="course-eval-section-container-top">
+<h3 class="text-med">Course Evaluations</h3>
+<p class="card-description text-small">
+<a href="/about/">Learn more about evaluation data on our about page.</a>
+</p>
+<div class="response-rate-container">
+<div class="response-rate">
+<p class="text-small">
+<img alt="response rate icon" class="response-rate-icon" src="/static/images/icons/loudspeaker.svg" title="The number of U-M students who provided an evaluation response for this individual course"/>
+          101 responses for 178 possible evaluations (57% response rate).
+        </p>
+</div>
+</div>
+</div>
+<div class="course-eval-section-container-bottom">
+<evaluation-card :value="84.0" class-prefix="desire" description="expressed a strong desire to take this course" icon="heart" title="Desire to take"></evaluation-card>
+<evaluation-card :value="96.0" class-prefix="understanding" description="thought this course advanced their understanding of the subject matter" icon="lightbulb" title="Understanding"></evaluation-card>
+<evaluation-card :value="7.0" class-prefix="workload" description="perceived the workload for this course as heavier than other courses" icon="weight" title="Workload"></evaluation-card>
+<evaluation-card :value="81.0" class-prefix="expectations" description="expressed knowing what was expected of them in this course" icon="crystalball" title="Expectations"></evaluation-card>
+<evaluation-card :value="83.0" class-prefix="increased-interest" description="expressed increased interest in the subject because of this course" icon="lightning" title="Increased Interest"></evaluation-card>
+</div>
+</div>
+<div class="card-container-block">
+<div class="card-container left">
+<div class="grade-distribution-container">
+<h3 class="text-med">Grade History</h3>
+<p class="card-description text-small">
+    Grades are managed by instructors, and may be distributed differently by term or by section. For students who earned letter grades other than W, I, P or F, this graph shows the percentage of students who received each letter grade.
+  </p>
+<grade-distribution :grade-data="[{'grade': 'A+', 'percent': 0.008}, {'grade': 'A', 'percent': 0.346}, {'grade': 'A-', 'percent': 0.18}, {'grade': 'B+', 'percent': 0.075}, {'grade': 'B', 'percent': 0.12}, {'grade': 'B-', 'percent': 0.09}, {'grade': 'C+', 'percent': 0.068}, {'grade': 'C', 'percent': 0.045}, {'grade': 'C-', 'percent': 0.03}, {'grade': 'D+', 'percent': 0.008}, {'grade': 'D', 'percent': 0.008}, {'grade': 'D-', 'percent': 0.015}, {'grade': 'E', 'percent': 0.008}]" course="AAS 115" median-grade="A-" pf-registration-rate="16.36" withdraw-rate="1.21"></grade-distribution>
+</div>
+</div>
+<div class="card-container right">
+<div class="student-level-container">
+<h3 class="text-med">Incoming Student Level</h3>
+<p class="card-description text-small">
+    This graph shows students’ academic level when they started
+
+      <span class="text-small">AAS 115</span>
+    .
+  </p>
+<div id="student-level">
+<student-level-wrapper course-code="AAS 115"></student-level-wrapper>
+</div>
+</div>
+</div>
+</div>
+<div class="card-container">
+<div class="course-instructors-container">
+<div class="course-instructors">
+<div class="course-instructors-header-container">
+<div class="course-instructors-section left">
+<h3 class="text-med">Course Instructors</h3>
+<p class="card-description text-small">
+          This table shows instructors who have taught
+          <span class="text-small">AAS 115</span>; adjunct lecturers are not included in this list.
+        </p>
+</div>
+<div class="course-instructors-section right">
+<h2 class="text-small blue-highlight-text">Why is a specific instructor not showing up?</h2>
+<p class="card-description text-small">Instructors are only shown if they are considered full-time and have taught this course in the past 5 academic years.</p>
+</div>
+</div>
+<course-instructors-wrapper class="course-instructors-table-container" course-code="AAS 115"></course-instructors-wrapper>
+</div>
+</div>
+</div>
+<div class="card-container-block">
+<div class="card-container left">
+<div class="declared-degrees-container">
+<h3 class="text-med">Declared Degrees</h3>
+<p class="text-small">
+    This list shows what degree students who took
+
+      <span class="text-small">AAS 115</span>
+
+    eventually declared.
+  </p>
+<div id="student-degrees">
+<declared-degrees course-code="AAS 115"></declared-degrees>
+</div>
+</div>
+</div>
+<div class="card-container right">
+<h3 class="text-med">School/College Affiliation</h3>
+<p class="text-small">
+  This list shows what colleges or schools students were affliated with when they took
+  <span class="text-small">AAS 115</span>. Students may have changed their program or plan after taking this course
+  but that change is not being reflected in this list.
+</p>
+<div id="student-career">
+<school-affiliation course-code="AAS 115"></school-affiliation>
+</div>
+</div>
+</div>
+<div class="card-container">
+<h3 class="text-med">Common Course Pathways</h3>
+<p class="text-small card-description">This panel shows the most common courses students took before, during, and after being enrolled in
+    <span class="text-small">AAS 115</span>. The percentage next to each course represents the percentage of students that have taken
+
+      <span class="text-small">AAS 115</span>
+     that also took the specified course.
+<p>
+<course-sequence course-code="AAS 115"></course-sequence>
+</p></p></div>
+<div class="card-container">
+<div class="course-student-enrollment-container">
+<h3 class="text-med">Student Enrollment</h3>
+<p class="card-description text-small">
+    This graph shows the number of students each semester who completed
+
+      <span class="text-small">AAS 115</span>,
+
+      including those who received letter grades W, I, P or F.
+  </p>
+<div class="enrol-chart">
+<student-enrollment :enrollment-data="[{'x': '2160', 'y': 22, 'label': 'FA 2017'}, {'x': '2210', 'y': 33, 'label': 'FA 2018'}, {'x': '2260', 'y': 37, 'label': 'FA 2019'}, {'x': '2310', 'y': 38, 'label': 'FA 2020'}, {'x': '2360', 'y': 22, 'label': 'FA 2021'}, {'x': '2410', 'y': 26, 'label': 'FA 2022'}]"></student-enrollment>
+</div>
+</div>
+</div>
+<snackbar-notification></snackbar-notification>
+</div>
+<div class="social-link-container">
+<p class="text-xsmall text-center bold">Share with your network.</p>
+<div class="social-link">
+<a href="mailto:?subject=Course Info - AAS 115: Elementary Swahili&amp;body=Check out AAS 115: Elementary Swahili here: http%3A//atlas.ai.umich.edu/course/AAS%2520115/" title="Share by Email">
+<img alt="email icon" src="/static/images/icons/social/social_mail.svg" title="email icon"/>
+</a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//atlas.ai.umich.edu/course/AAS%2520115/" title="Share by Facebook">
+<img alt="facebook icon" src="/static/images/icons/social/social_facebook.svg" title="facebook icon"/>
+</a>
+<a href="https://twitter.com/intent/tweet?url=http%3A//atlas.ai.umich.edu/course/share/AAS%2520115/&amp;text=AAS 115" title="Share by Twitter">
+<img alt="twitter icon" src="/static/images/icons/social/social_twitter.svg" title="twitter icon"/>
+</a>
+</div>
+</div>
+<footer>
+<div class="text-small" id="snackbar-added">
+<p class="text-small">Saved to Dashboard <a href="/my-dashboard/" target="_blank">VIEW</a></p>
+</div>
+<div class="text-small" id="snackbar-removed">
+<p class="text-small">Removed from Dashboard <a class="text-small" id="snackbar-removed-undo">UNDO</a></p>
+</div>
+<footer class="footer-container">
+<div class="footer-details-container">
+<div class="ai-logo-container">
+<img alt="Academic Innovation logo" class="ai-logo" src="/static/images/logo/ai-logo.png">
+</img></div>
+<div class="legal-container text-xsmall">
+<div class="legal-text">
+<p>By using Atlas, you are agreeing <br/> to abide by our <a href="/legal/">Terms of Service.</a></p>
+<p>Copyright © 2022</p>
+<p>The Regents of the University of Michigan</p>
+<p>Powered by the <a href="https://ai.umich.edu/">Center for Academic Innovation</a></p>
+</div>
+</div>
+</div>
+<div class="nav-links-container">
+<div class="nav-links text-small">
+<h3 class="bold">Atlas</h3>
+<li class=""><a class="text-small" href="/courses/">Browse Courses</a></li>
+<li class=""><a class="text-small" href="/spotlights/">Academic Spotlights</a></li>
+<li class="text-small"><a href="/about/">About Us</a></li>
+</div>
+<div class="nav-links text-small">
+<h3 class="bold">My Account</h3>
+<li class=""><a class="text-small" href="/my-dashboard/"><p></p>My Dashboard</a></li>
+<li class=""><a class="text-small" href="/schedule-builder/">Schedule Builder</a></li>
+<li class="text-small"><a href="/accounts/logout">Logout</a></li>
+</div>
+</div>
+<div class="feedback-container">
+<feedback-button feedback-url="/feedback/"></feedback-button>
+</div>
+</footer>
+</footer>
+<!-- scripts concatenated and minified via build script -->
+<link href="/static/dist/css/chunk-vendors.f6382d1d.css" rel="stylesheet">
+<script src="/static/dist/js/chunk-vendors.aa4917d4.js"></script>
+<script src="/static/dist/js/chunk-common.169e671d.js"></script>
+<script src="/static/dist/js/header.07a3cd52.js"></script>
+<link href="/static/dist/css/footer.a64f3362.css" rel="stylesheet">
+<script src="/static/dist/js/footer.00e2b7e3.js"></script>
+<link href="/static/dist/css/course.3df151ee.css" rel="stylesheet">
+<script src="/static/dist/js/course.6f53a9b6.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67092539-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</link></link></link></body>
+</html>

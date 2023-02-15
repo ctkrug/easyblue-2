@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Courses</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <h1 class="title">Winter 2023 Undergraduate Courses</h1>
+
+    <form action="{{ url_for('index') }}" method="post" class="form">
+      <div class="form-group">
+        <label for="sort_by">Sort By:</label>
+        <select id="sort_by" name="sort_by">
+          <option value="median_grade">Median Grade</option>
+          <option value="workload">Workload</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="ascending">Sort Order:</label>
+        <input type="radio" id="ascending" name="sort_order" value="ASC">Ascending
+        <input type="radio" id="descending" name="sort_order" value="DESC">Descending
+      </div>
+      <div class="form-group">
+        <label for="limit">Limit:</label>
+        <select id="limit" name="limit">
+          <option value="10">10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="500">500</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="category">Department:</label>
+        <select id="category" name="category">
+          <option value="">All</option>
+          {% for department in departments %}
+            <option value="{{ department }}">{{ department }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <table class="course-table">
+      <tr>
+        <th class="table-header">Department</th>
+        <th class="table-header">Course Number</th>
+        <th class="table-header">Median Grade</th>
+        <th class="table-header">Workload</th>
+      </tr>
+      {% for course in courses %}
+        <tr class="table-row">
+          <td class="table-cell">{{ course[0] }}</td>
+          <td class="table-cell">{{ course[1] }}</td>
+          <td class="table-cell">{{ course[2] }}</td>
+          <td class="table-cell">{{ course[3]}}%</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

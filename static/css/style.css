@@ -1,0 +1,79 @@
+body {
+  background-color: #001f3f;
+  font-family: Arial, sans-serif;
+  color: white;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 2px #000;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+select, input[type="text"], input[type="number"], input[type="radio"] {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  margin-top: 5px;
+  box-shadow: 2px 2px 2px #000;
+  width: 200px;
+}
+
+.btn-primary {
+  background-color: #1e90ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #000;
+}
+
+.course-table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 2px 2px 2px #000;
+}
+
+.table-header {
+  background-color: #add8e6;
+  font-size: 18px;
+  padding: 10px;
+  text-align: center;
+}
+
+.table-row {
+  background-color: #87cefa;
+  font-size: 16px;
+  text-align: center;
+}
+
+.table-cell {
+  padding: 10px;
+  border: 1px solid #000;
+}
