@@ -1,7 +1,4 @@
 requests
 beautifulsoup4
-time
-datetime
 sqlite3
-random
 re
