@@ -4,7 +4,6 @@
 
 import requests
 from bs4 import BeautifulSoup
-import ast
 import json
 import time
 import datetime
