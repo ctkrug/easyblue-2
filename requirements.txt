@@ -1,6 +1,5 @@
 requests
 beautifulsoup4
-json
 time
 datetime
 sqlite3
