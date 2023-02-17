@@ -8,7 +8,7 @@ import categories
 
 # Global Variables
 DB_NAME = "Atlas_Courseguide_W23_All_Subjects_UG.db"
-COURSE_TABLE = "W23_All_Courses"
+COURSE_TABLE = "W23_All_Atlas_Data_test"
 
 def create_connection():
     conn = sqlite3.connect(DB_NAME)
@@ -20,60 +20,82 @@ def close_connection(conn):
 
 def get_departments(conn):
     cursor = conn.cursor()
-    query = "SELECT DISTINCT department FROM {}".format(COURSE_TABLE)
+    query = "SELECT DISTINCT course_code FROM {}".format(COURSE_TABLE)
     cursor.execute(query)
     departments = cursor.fetchall()
-    # print(departments)
     departments = [department[0] for department in departments]
-    print(departments)
     return departments
 
-def query_courses(conn, sort_by="median_grade", ascending=None, limit=None, filter_criteria=None, category=None):
+def query_courses(conn, sort_by="median_grade", ascending=None, limit=None, filter_criteria=None, category=None, course_level=None, exclude_na="False"):
     """
     Queries the database for courses, sorted by the given column, in the given order.
     If limit is specified, only the first limit results are returned.
     If filter_criteria is specified, only the results that match the criteria are returned.
-    If cate"gory is specified, only the courses belonging to that category are returned.
+    If category is specified, only the courses belonging to that category are returned.
+    If course_level is specified, only the courses in that level range are returned.
     """
     cursor = conn.cursor()
     order = "ASC" if ascending == "ASC" else "DESC" if ascending == "DESC" else "DESC"
-    limit=100 if limit is None else limit
+    limit = 100 if limit is None else limit
+    orig_sort_by = sort_by
+    where = False
+    try:
+        course_level = int(course_level)
+    except: 
+        course_level = None
 
-    # Median Grade Sort 
+    # Median Grade Sort
     if sort_by == "median_grade":
-        print(order)
-        sort_by = "gpa"
-        # Check for None values 
-        if order == None:
+        sort_by = "weighted_gpa"
+        # Check for None values
+        if order is None:
             order = "DESC"
-        print(order)
         second_priority = "workload"
         second_priority_order = "ASC"
 
     # Workload Sort
     elif sort_by == "workload":
-        # Check for None values 
-        if order == None:
+        # Check for None values
+        if order is None:
             order = "ASC"
-        second_priority = "gpa"
+        second_priority = "median_grade"
         second_priority_order = "DESC"
 
-    query = f"SELECT department, course_number, median_grade, workload, ROUND(gpa,2) FROM {COURSE_TABLE}"
+    query = f"SELECT * FROM {COURSE_TABLE}"
+    
+    if course_level is not None:
+        query += f" WHERE course_number >= {course_level}"
+        where = True
+        if category or filter_criteria:
+            query += " AND "
+    elif category or filter_criteria:
+        query += " WHERE "
+        where = True
     if category:
-        query += f" WHERE department='{category}'"
+        query += f" course_code='{category}'"  
         if filter_criteria:
             query += f" AND {filter_criteria}"
     elif filter_criteria:
         query += " WHERE " + filter_criteria
+        where = True
+    # check if the word 'False' is in the string exclude_na (there's extra whitespace)
+    if 'False' not in exclude_na:
+        print('excluded na', exclude_na)
+        print(type(exclude_na))
+        if where:
+            query += " AND {} != 'N/A' AND {} != 'null' AND {} != 'N/A' AND {} != 'null'".format(orig_sort_by, orig_sort_by, second_priority, second_priority)
+        else:
+            query += " WHERE {} != 'N/A' AND {} != 'null' AND {} != 'N/A' AND {} != 'null'".format(orig_sort_by, orig_sort_by, second_priority, second_priority)
+    if second_priority == "median_grade":
+        second_priority = "weighted_gpa"
     query += " ORDER BY {} {}".format(sort_by, order)
-    query += ", {} {}".format(second_priority,second_priority_order)
+    query += ", {} {}".format(second_priority, second_priority_order)
     if limit:
         query += " LIMIT {}".format(limit)
     print(query)
+    
     cursor.execute(query)
     return cursor.fetchall()
-
-
 
 def update_gpa_column(conn):
     """
@@ -84,14 +106,8 @@ def update_gpa_column(conn):
     classes = cursor.fetchall()
     # Create gpa column
     # cursor.execute("ALTER TABLE {} ADD COLUMN gpa REAL".format(COURSE_TABLE))
-    for class_ in classes:
-        median_grade = class_[2]
-        gpa = GRADE_VALUES.get(median_grade)
-        if gpa is not None:
-            cursor.execute("UPDATE {} SET gpa = ? WHERE median_grade = ?".format(COURSE_TABLE), (gpa, median_grade))
-        else:
-            cursor.execute("UPDATE {} SET gpa = 0.0 WHERE median_grade = ?".format(COURSE_TABLE), (median_grade,))
-
+    for grade in GRADE_VALUES:
+        cursor.execute("UPDATE {} SET gpa = {} WHERE median_grade = '{}'".format(COURSE_TABLE, GRADE_VALUES[grade], grade))
     conn.commit()
 
 def update_name_column(conn):
@@ -122,11 +138,11 @@ def main():
     category = args.category
     # Connect to the database
     conn = sqlite3.connect(DB_NAME)
-    # update_gpa_column(conn)
+    update_gpa_column(conn)
     # update_name_column(conn)
-    results = query_courses(conn, sort_by, ascending, limit, filter_criteria, category)
-    for result in results:
-        print(result)
+    # results = query_courses(conn, sort_by, ascending, limit, filter_criteria, category)
+    # for result in results:
+    #   print(result)
     conn.close()
 
 if __name__ == '__main__':
