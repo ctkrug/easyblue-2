@@ -12,8 +12,8 @@ import random
 import re 
 
 # Global Variables
-TABLE_NAME = "W23_All_Atlas_Data_test"
-DB_NAME = "Atlas_Courseguide_W23_All_Subjects_UG.db"
+DB_NAME = "Atlas_W23_All_Subjects_GR.db"
+TABLE_NAME = "W23_Online_Atlas_Data_GR"
 
 # Funtion to get the information from a single course page
 # https://atlas.ai.umich.edu/course/AAS%20115/
@@ -209,7 +209,7 @@ def scrape_lsa_courseguide_subject(subject, courses, session, cookies, headers, 
     It then calls scrape_course_page for each course in the subject. (Atlas)
     """
     # Get the LSA course guide page for the subject + semester
-    url = f'https://www.lsa.umich.edu/cg/cg_results.aspx?termArray=w_23_2420&cgtype=ug&department={subject}&allsections=true&show=999'
+    url = f'https://www.lsa.umich.edu/cg/cg_results.aspx?termArray=w_23_2420&cgtype=gr&department={subject}&allsections=true&show=999&instruction=Online'
     response = session.get(url, cookies=cookies, headers=headers)
     
     # Make any whitespace in the soup into a single space
@@ -231,8 +231,8 @@ def scrape_all_subjects(courses, session, cookies, headers, cursor, conn):
     """
     This function scrapes all subjects in the LSA course guide.
     """
+    socs= False
     for subject in courses:
-        print(subject)
         scrape_lsa_courseguide_subject(subject, courses, session, cookies, headers, cursor, conn)
 
 def make_table(cursor,conn):
@@ -247,20 +247,20 @@ def make_table(cursor,conn):
         evaluations TEXT,
         grade_history TEXT,
         student_enrollment TEXT,
-        workload TEXT,
-        a_plus TEXT,
-        a TEXT,
-        a_minus TEXT,
-        b_plus TEXT,
-        b TEXT,
-        b_minus TEXT,
-        c_plus TEXT,
-        c TEXT,
-        c_minus TEXT,
-        d_plus TEXT,
-        d TEXT,
-        d_minus TEXT,
-        e TEXT
+        workload REAL,
+        a_plus REAL,
+        a REAL,
+        a_minus REAL,
+        b_plus REAL,
+        b REAL,
+        b_minus REAL,
+        c_plus REAL,
+        c REAL,
+        c_minus REAL,
+        d_plus REAL,
+        d REAL,
+        d_minus REAL,
+        e REAL
         )""".format(TABLE_NAME))
 
 def main():
@@ -279,7 +279,7 @@ def main():
 
     # Scrape all subjects
     scrape_all_subjects(courses, session, cookies, headers, cursor, conn)
-    # scrape_lsa_courseguide_subject('EECS',courses, session, cookies, headers, cursor, conn)
+    # scrape_lsa_courseguide_subject('IOE',courses, session, cookies, headers, cursor, conn)
     # scrape_course_info('EECS', '409', session, cookies, headers, cursor, conn)
     
     conn.commit()

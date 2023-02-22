@@ -1,11 +1,12 @@
 body {
-  background: linear-gradient(to bottom, #00274C, #6daae2);
+  background: linear-gradient(to bottom, #00274C, #FFCB05);
   font-family: "Helvetica Neue", sans-serif;
   color: #333;
 }
 
 .header {
   display: flex;
+  background: linear-gradient(to right, #00274C,#00274C);
   justify-content: space-between;
   align-items: center;
   height: 80px;
@@ -23,26 +24,45 @@ body {
 
 .logo {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 0px;
+  left: 10px;
 
 }
 
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.term-type {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #00274C;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 1;
+}
 
 .filter {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
-  width: 480px;
+  height: 160px;
+  width: 560px;
   background-color: #dadada;
-  padding: 20px;
+  padding: 30px;
   position: relative;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 100px;
   border-top: 1px solid #00274C;
   border-bottom: 1px solid #00274C;
 }
+
 
 .filter-header {
   font-size: 16px;
@@ -55,7 +75,7 @@ body {
 
 .filter-select {
   width: 120px;
-  padding: 10px;
+  padding: 20px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;

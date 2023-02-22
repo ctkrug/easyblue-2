@@ -7,19 +7,34 @@
 <body>
   <div class="header">
     <img src="https://i.ibb.co/QpZjh1k/new-logo-clear.png" alt="Your Logo" class="logo">
-    <h1 class="title">Winter 2023 Undergraduate Courses</h1>
+    <h1 class="title">University of Michigan Course Finder</h1>
   </div>
   <div class="filter-container">
     <form action="{{ url_for('index') }}" method="post" class="form" id="filter-form">
+      <div class="term-type" id="term-type">
+        <label for="term_name">Term:</label>
+        <select id="term_name" name="term_name">
+          <option value="F22">Fall 2022 - Undergraduate</option>
+          <option value="W23">Winter 2023 - Undergraduate</option>
+          <option value="F22_GR">Fall 2022 - Graduate</option>
+          <option value="W23_GR">Winter 2023 - Graduate</option>
+          <option value="F22_GR_O">Fall 2022 - Online Graduate</option>
+          <option value="W23_GR_O">Winter 2023 - Online Graduate</option>
+        </select>
+    </div>
       <div class="filter">
         <div class="form-group">
           <div class="form-group grade-range">
-            <label for="grade-range">At least ___% Of students</label>
-            <input type="range" min="0" max="100" step="1" id="grade-range" name="grade-range" value="50">
+            <p><strong>Find courses where:</strong></p>            
+            <label for="grade-range">At least __% of students</label>
+            <input type="range" min="0" max="100" step="1" id="grade-range" name="grade-range" value= {{ min_percent }}>
+            <span id="grade-range-value"></span>%
           </div>
-          <div class="form-group gpa-range">
-            <label for="gpa-range">Got at least:</label>
-            <input type="range" min="0" max="4.0" step="0.1" id="gpa-range" name="gpa-range" value="2.0">
+          <div class="form-group grade-letter">
+            <label for="grade-letter">Got a final grade of:</label>
+            <input type="range" min="0" max="12" step="1" id="grade-letter" name="grade-letter" value={{ min_grade }}>
+            <span id="grade-letter-value"></span>
+            <p> or higher.</p>
           </div>
           </div>
           <div class="form-group">
@@ -28,13 +43,14 @@
             <select id="sort_by" name="sort_by">
               <option value="median_grade">Median Grade</option>
               <option value="workload">Workload</option>
+              <option value="weighted_gpa">Weighted GPA</option>
             </select>
           </div>
           <div class="form-group exclude_na">
             <label for="exclude_na">Exclude "N/A" Results:</label>
             <select id="exclude_na" name="exclude_na">
-              <option value=True>Yes</option>
               <option value=False>No</option>
+              <option value=True>Yes</option>
             </select>
           </div>
           <div class="form-group course_level">
@@ -60,6 +76,7 @@
           <div class="form-group limit">
             <label for="limit">Limit:</label>
             <select id="limit" name="limit">
+              <option value="9999">All</option>
               <option value="10">10</option>
               <option value="25">25</option>
               <option value="50">50</option>
@@ -87,23 +104,31 @@
       <th class="table-header">Course</th>
       <th class="table-header">Credits</th>
       <th class="table-header">Median Grade</th>
-      <th class="table-header">Prerequisites</th>
       <th class="table-header">Workload</th>
       <th class="table-header">Weighted GPA</th>
+      <th class="table-header">% Over </th> 
+      <th class="table-header">Enforced Prerequisites</th>
+      <th class="table-header">Advisory Prerequisites</th>
 
-
+    </tr>
     </tr>
     {% for course in courses %}
     <tr class="table-row">
-      <td class="table-cell">{{ course[1] }}</td>
+      <td class="table-cell"><a href="https://atlas.ai.umich.edu/course/{{ course[0] }}%20{{ course [24] }}">{{ course[1]}}</a> </td>
       <td class="table-cell">{{ course[3] }}</td>
       <td class="table-cell">{{ course[4] }}</td>
-      <td class="table-cell">{{ course[6] }}</td>
       <td class="table-cell">{{ course[10] }}%</td>
-      <td class="table-cell">{{ course[25] }}</td>
-      <td class="table-cell">{{ course[0] }}</td>
+      <td class="table-cell">{{ course[26] | round(3) }}</td>
+      <td class="table-cell">{{ ((course[27][0] * 100) - 1) | round(2)  }}%</td>
+      <td class="table-cell">{{ course[6] }}</td>
+      <td class="table-cell">{{ course[5] }}</td>
     </tr>
     {% endfor %}
+  </table>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
   </table>
   <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
