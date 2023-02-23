@@ -1,0 +1,145 @@
+body {
+  background: linear-gradient(to bottom, #00274C, #FFCB05);
+  font-family: "Helvetica Neue", sans-serif;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  background: linear-gradient(to right, #00274C,#00274C);
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 80px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  align-content: right;
+  margin: auto;
+  color: #FFCB05;
+}
+
+.logo {
+  position: absolute;
+  top: 0px;
+  left: 10px;
+
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.term-type {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #00274C;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+  width: 560px;
+  background-color: #dadada;
+  padding: 30px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 100px;
+  border-top: 1px solid #00274C;
+  border-bottom: 1px solid #00274C;
+}
+
+
+.filter-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  color: #cf1717;
+  margin-right: 20px;
+}
+
+.filter-select {
+  width: 120px;
+  padding: 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #000000;
+  color: #ad0000;
+  text-align: center;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.filter-select option {
+  background-color: #fff;
+  color: #dd2020;
+}
+
+.btn {
+  width: 120px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #239707;
+  border-radius: 4px;
+  margin-left: 20px;
+  background-color: #239707;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+  background-color: #2eaa0f;
+}
+
+.course-table {
+  width: 80%;
+  margin-top: 100px;
+  margin: 50px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.table-header {
+  background-color: #00274C;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+.table-row {
+  border-bottom: 1px solid #91c0b6;
+}
+
+.table-cell {
+  font-size: 16px;
+  padding: 10px;
+  color: #333;
+  background-color: #ffffff;
+}
+
+.table-row:hover {
+  background-color: #e0e0e0;
+}
